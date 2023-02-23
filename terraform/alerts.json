@@ -1,0 +1,334 @@
+[
+  {
+    "criteria": [
+      {
+        "name": "Metric1",
+        "metric_namespace": "Insights.Container/pods",
+        "metric_name": "completedJobsCount",
+        "threshold": 0.0,
+        "dimensions": [
+          {
+            "values": [
+              "*"
+            ],
+            "name": "controllerName",
+            "operator": "Include"
+          },
+          {
+            "values": [
+              "*"
+            ],
+            "name": "kubernetes namespace",
+            "operator": "Include"
+          }
+        ],
+        "operator": "GreaterThan",
+        "aggregation": "Average"
+      }
+    ],
+    "description": "This alert monitors completed jobs (more than 6 hours ago)",
+    "name": "Jobs completed more than 6 hours ago for aks CI-11"
+  },
+  {
+    "criteria": [
+      {
+        "name": "Metric1",
+        "metric_namespace": "Insights.Container/nodes",
+        "metric_name": "cpuUsagePercentage",
+        "threshold": 80.0,
+        "dimensions": [
+          {
+            "values": [
+              "*"
+            ],
+            "name": "host",
+            "operator": "Include"
+          }
+        ],
+        "operator": "GreaterThan",
+        "aggregation": "Average"
+      }
+    ],
+    "description": "Node CPU utilization across the cluster",
+    "name": "Node CPU utilization high for aks CI-1"
+  },
+  {
+    "criteria": [
+      {
+        "name": "Metric1",
+        "metric_namespace": "Insights.Container/nodes",
+        "metric_name": "DiskUsedPercentage",
+        "threshold": 80.0,
+        "dimensions": [
+          {
+            "values": [
+              "*"
+            ],
+            "name": "host",
+            "operator": "Include"
+          },
+          {
+            "values": [
+              "*"
+            ],
+            "name": "device",
+            "operator": "Include"
+          }
+        ],
+        "operator": "GreaterThan",
+        "aggregation": "Average"
+      }
+    ],
+    "description": "This alert monitors disk usage for all nodes and storage devices",
+    "name": "Disk usage high for aks CI-5"
+  },
+  {
+    "criteria": [
+      {
+        "name": "Metric1",
+        "metric_namespace": "Insights.Container/nodes",
+        "metric_name": "nodesCount",
+        "threshold": 0.0,
+        "dimensions": [
+          {
+            "values": [
+              "NotReady"
+            ],
+            "name": "status",
+            "operator": "Include"
+          }
+        ],
+        "operator": "GreaterThan",
+        "aggregation": "Average"
+      }
+    ],
+    "description": "Node status monitoring",
+    "name": "Nodes in not ready status for aks CI-3"
+  },
+  {
+    "criteria": [
+      {
+        "name": "Metric1",
+        "metric_namespace": "Insights.Container/nodes",
+        "metric_name": "memoryWorkingSetPercentage",
+        "threshold": 80.0,
+        "dimensions": [
+          {
+            "values": [
+              "*"
+            ],
+            "name": "host",
+            "operator": "Include"
+          }
+        ],
+        "operator": "GreaterThan",
+        "aggregation": "Average"
+      }
+    ],
+    "description": "Node working set memory utilization across the cluster",
+    "name": "Node working set memory utilization high for aks CI-2"
+  },
+  {
+    "criteria": [
+      {
+        "name": "Metric1",
+        "metric_namespace": "Insights.Container/pods",
+        "metric_name": "oomKilledContainerCount",
+        "threshold": 0.0,
+        "dimensions": [
+          {
+            "values": [
+              "*"
+            ],
+            "name": "kubernetes namespace",
+            "operator": "Include"
+          },
+          {
+            "values": [
+              "*"
+            ],
+            "name": "controllerName",
+            "operator": "Include"
+          }
+        ],
+        "operator": "GreaterThan",
+        "aggregation": "Average"
+      }
+    ],
+    "description": "This alert monitors number of containers killed due to out of memory(OOM) error",
+    "name": "Containers getting OOM killed for aks CI-6"
+  },
+  {
+    "criteria": [
+      {
+        "name": "Metric1",
+        "metric_namespace": "Insights.Container/containers",
+        "metric_name": "cpuThresholdViolated",
+        "threshold": 0.0,
+        "dimensions": [
+          {
+            "values": [
+              "*"
+            ],
+            "name": "controllerName",
+            "operator": "Include"
+          },
+          {
+            "values": [
+              "*"
+            ],
+            "name": "kubernetes namespace",
+            "operator": "Include"
+          }
+        ],
+        "operator": "GreaterThan",
+        "aggregation": "Average"
+      }
+    ],
+    "description": "This alert monitors container CPU usage",
+    "name": "Container CPU usage violates the configured threshold for aks CI-19"
+  },
+  {
+    "criteria": [
+      {
+        "name": "Metric1",
+        "metric_namespace": "Insights.Container/containers",
+        "metric_name": "memoryWorkingSetThresholdViolated",
+        "threshold": 0.0,
+        "dimensions": [
+          {
+            "values": [
+              "*"
+            ],
+            "name": "controllerName",
+            "operator": "Include"
+          },
+          {
+            "values": [
+              "*"
+            ],
+            "name": "kubernetes namespace",
+            "operator": "Include"
+          }
+        ],
+        "operator": "GreaterThan",
+        "aggregation": "Average"
+      }
+    ],
+    "description": "This alert monitors container working set memory usage",
+    "name": "Container working set memory usage violates the configured threshold for aks CI-20"
+  },
+  {
+    "criteria": [
+      {
+        "name": "Metric1",
+        "metric_namespace": "Insights.Container/pods",
+        "metric_name": "podCount",
+        "threshold": 0.0,
+        "dimensions": [
+          {
+            "values": [
+              "Failed"
+            ],
+            "name": "phase",
+            "operator": "Include"
+          }
+        ],
+        "operator": "GreaterThan",
+        "aggregation": "Average"
+      }
+    ],
+    "description": "Pod status monitoring",
+    "name": "Pods in failed state for aks CI-4"
+  },
+  {
+    "criteria": [
+      {
+        "name": "Metric1",
+        "metric_namespace": "Insights.Container/persistentvolumes",
+        "metric_name": "pvUsageThresholdViolated",
+        "threshold": 0.0,
+        "dimensions": [
+          {
+            "values": [
+              "*"
+            ],
+            "name": "podName",
+            "operator": "Include"
+          },
+          {
+            "values": [
+              "*"
+            ],
+            "name": "kubernetesNamespace",
+            "operator": "Include"
+          }
+        ],
+        "operator": "GreaterThan",
+        "aggregation": "Average"
+      }
+    ],
+    "description": "This alert monitors PV usage",
+    "name": "PV usage violates the configured threshold for aks CI-21"
+  },
+  {
+    "criteria": [
+      {
+        "name": "Metric1",
+        "metric_namespace": "Insights.Container/pods",
+        "metric_name": "PodReadyPercentage",
+        "threshold": 80.0,
+        "dimensions": [
+          {
+            "values": [
+              "*"
+            ],
+            "name": "controllerName",
+            "operator": "Include"
+          },
+          {
+            "values": [
+              "*"
+            ],
+            "name": "kubernetes namespace",
+            "operator": "Include"
+          }
+        ],
+        "operator": "LessThan",
+        "aggregation": "Average"
+      }
+    ],
+    "description": "This alert monitors pods in the ready state",
+    "name": "Pods not in ready state for aks CI-8"
+  },
+  {
+    "criteria": [
+      {
+        "name": "Metric1",
+        "metric_namespace": "Insights.Container/pods",
+        "metric_name": "restartingContainerCount",
+        "threshold": 0.0,
+        "dimensions": [
+          {
+            "values": [
+              "*"
+            ],
+            "name": "kubernetes namespace",
+            "operator": "Include"
+          },
+          {
+            "values": [
+              "*"
+            ],
+            "name": "controllerName",
+            "operator": "Include"
+          }
+        ],
+        "operator": "GreaterThan",
+        "aggregation": "Average"
+      }
+    ],
+    "description": "This alert monitors number of containers restarting across the cluster",
+    "name": "Restarting container count for aks CI-7"
+  }
+]

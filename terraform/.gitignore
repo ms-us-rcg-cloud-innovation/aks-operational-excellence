@@ -34,4 +34,4 @@ override.tf.json
 terraform.rc
 
 # ignore alert json file
-alerts.json
+alert_arm.json
