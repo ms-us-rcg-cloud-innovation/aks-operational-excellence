@@ -4,9 +4,6 @@ on:
   workflow_dispatch:
     types: aks-cluster-upgrade
     input:
-      environment: 
-        description: 'Cluster environment'
-        required: true
       resource_group:
         description: 'AKS cluster resource group'
         required: true
@@ -24,7 +21,7 @@ jobs:
   upgrade-sandbox:
     uses: ms-us-rcg-app-innovation/aks-operational-excellence/.github/workflows/aks-upgrade-template.yml@main
     with:
-      environment: ${{ inputs.environment }}
+      environment: Sandbox
       resource_group: ${{ inputs.resource_group }}
       cluster_name: ${{ inputs.cluster_name }}
       kubernetes_version: ${{ inputs.kubernetes_version}}
@@ -34,7 +31,7 @@ jobs:
     uses: ms-us-rcg-app-innovation/aks-operational-excellence/.github/workflows/aks-upgrade-template.yml@main
     needs: upgrade-sandbox
     with:
-      environment: ${{ inputs.environment }}
+      environment: Development
       resource_group: ${{ inputs.resource_group }}
       cluster_name: ${{ inputs.cluster_name }}
       kubernetes_version: ${{ inputs.kubernetes_version}}
