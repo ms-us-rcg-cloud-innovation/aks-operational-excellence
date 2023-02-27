@@ -1,17 +1,9 @@
 name: AKS Upgrade
 
 on:
-<<<<<<< HEAD
   workflow_dispatch:
     types: aks-cluster-upgrade
     input:
-=======
-  workflow_dispatch:    
-    inputs:
-      environment: 
-        description: 'Cluster environment'
-        required: true
->>>>>>> 8d1b03db634d6d773c3d50708e409f3568023d69
       resource_group:
         description: 'AKS cluster resource group'
         required: true
