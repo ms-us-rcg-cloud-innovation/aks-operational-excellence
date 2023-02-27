@@ -25,16 +25,17 @@ on:
 
 jobs:
   upgrade-control-plane:
+    name: Upgrade ${{ inputs.environment }} Control Plan
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     steps:
       - name: Azure login
-        uses: azure/login@v1.4.3
+        uses: azure/login@v1
         with:
           creds: ${{ secrets.az_creds }}
 
       - name: AKS control-plane upgrade
-        uses: azure/cli@v1.0.6
+        uses: azure/CLI@v1
         with:
           inlineScript: |
             az aks upgrade --resource-group ${{ inputs.resource_group }} 
@@ -44,6 +45,7 @@ jobs:
                            --yes
 
   upgrade-nodes:
+    name: Upgrade ${{ inputs.environment }} Nodes
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     needs: upgrade-control-plane
