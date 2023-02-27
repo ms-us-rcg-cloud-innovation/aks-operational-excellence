@@ -1,9 +1,8 @@
-name: AKS Progressive Upgrade
+name: AKS Upgrade
 
 on:
-  workflow_dispatch:
-    types: aks-cluster-upgrade
-    input:
+  workflow_dispatch:    
+    inputs:
       environment: 
         description: 'Cluster environment'
         required: true
