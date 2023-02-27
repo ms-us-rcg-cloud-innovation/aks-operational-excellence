@@ -1,9 +1,8 @@
 name: AKS Cluster Upgrade Template
 
 on:
-  workflow_call:
-    types: aks-cluster-upgrade
-    input:
+  workflow_dispatch:
+    inputs:
       environment:
         description: "Cluster environment"
         required: true
