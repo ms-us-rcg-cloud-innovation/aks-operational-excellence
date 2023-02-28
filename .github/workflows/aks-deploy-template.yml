@@ -31,7 +31,7 @@ jobs:
   prepare-terraform:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    name: '${{ inputs.environemt }} - Prepare'
+    name: '${{ inputs.environment }} - Prepare'
     # environment to be used during deployment
     environment: ${{ inputs.environment }}
     # environment variables used in this job
@@ -67,8 +67,8 @@ jobs:
                
   deploy-terraform:
     runs-on: 'ubuntu-latest'
-    name: ${{ inputs.environemt }} - Deploy
-    environment: '${{ inputs.environemt }}'
+    name: ${{ inputs.environment }} - Deploy
+    environment: '${{ inputs.environment }}'
     # environment variables used in this job
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
