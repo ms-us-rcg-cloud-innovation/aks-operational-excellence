@@ -27,6 +27,14 @@ on:
         required: true
       ARM_TENANT_ID:
         required: true
+      TFSTATE_STORAGE_ACCOUNT_NAME:
+        required: true
+      TFSTATE_STORAGE_CONTAINER_NAME:
+        required: true
+      TFSTATE_KEY:
+        required: true
+      TFSTATE_RESOURCES_GROUP_NAME:
+        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
