@@ -1,9 +1,5 @@
 name: AKS Environment deployment
 
-defaults:
-  run:
-    working-directory: terraform/aks  
-    
 on:
   workflow_dispatch:
     
@@ -13,7 +9,8 @@ jobs:
     uses: ms-us-rcg-app-innovation/aks-operational-excellence/.github/workflows/tf-deploy-template.yml@main
     with:
       environment: Sandbox
-      tf_var_file: 'environment-vars/sandbox.tfvars'
+      tf_var_file: 'environments/sandbox.tfvars'
+      working_directory: 'terraform/aks'
     secrets: inherit
   
   deploy-development:
@@ -22,7 +19,8 @@ jobs:
     needs: deploy-sandbox
     with:      
       environment: Development
-      tf_var_file: 'environment-vars/development.tfvars'
+      tf_var_file: 'environments/development.tfvars'
+      working_directory: 'terraform/aks'
     secrets: inherit
 
 
