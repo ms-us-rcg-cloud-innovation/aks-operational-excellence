@@ -1,5 +1,5 @@
 variable "resource_group" {
-  type = string
+  type        = string
   description = "Name of resource group for AKS cluster"
 }
 
