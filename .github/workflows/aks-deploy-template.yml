@@ -28,11 +28,6 @@ on:
         required: true
       ARM_TENANT_ID:
         required: true
-    
-
-defaults:
-  run:
-    working-directory: ${{ inputs.working_directory }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
