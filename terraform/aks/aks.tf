@@ -9,7 +9,7 @@ resource "azurerm_kubernetes_cluster" "default" {
 
   default_node_pool {
     name           = "default"
-    node_count     = 1
+    node_count     = var.default_pool_size
     vm_size        = "standard_d2as_v5"
     vnet_subnet_id = azurerm_virtual_network.default.subnet.*.id[0]
   }

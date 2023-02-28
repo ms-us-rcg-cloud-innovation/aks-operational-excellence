@@ -1,3 +1,8 @@
+variable "resource_group" {
+  type = string
+  description = "Name of resource group for AKS cluster"
+}
+
 variable "name" {
   type        = string
   description = "Name of the AKS cluster"
