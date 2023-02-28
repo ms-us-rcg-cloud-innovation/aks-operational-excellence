@@ -10,7 +10,7 @@ on:
 jobs:
   deploy-sandbox:
     name: Sandbox
-    uses: ms-us-rcg-app-innovation/aks-operational-excellence/.github/workflows/aks-deploy-template.yml@main
+    uses: ms-us-rcg-app-innovation/aks-operational-excellence/.github/workflows/tf-deploy-template.yml@main
     with:
       environment: Sandbox
       tf_var_file: 'environment-vars/sandbox.tfvars'
@@ -18,7 +18,7 @@ jobs:
   
   deploy-development:
     name: Development
-    uses:  ms-us-rcg-app-innovation/aks-operational-excellence/.github/workflows/aks-deploy-template.yml@main
+    uses:  ms-us-rcg-app-innovation/aks-operational-excellence/.github/workflows/tf-deploy-template.yml@main
     needs: deploy-sandbox
     with:      
       environment: Development
