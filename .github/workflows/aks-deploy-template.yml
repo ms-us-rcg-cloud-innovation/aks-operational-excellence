@@ -6,6 +6,10 @@ on:
   # Makes theworkflow re-usuable 
   workflow_call:
     inputs:
+      working_directory:
+        type: string
+        required: true
+        description: The default workign environment for workflow
       # the environment must be configured in GitHub with secrets to function properly
       environment:
         type: string
@@ -15,10 +19,6 @@ on:
         type: string
         required: true
         description: Terraform vars file for specific environment
-      working_directory:
-        type: string
-        required: true
-        description: The default workign environment for workflow
     secrets:
       ARM_CLIENT_ID: 
         required: true

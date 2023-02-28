@@ -5,4 +5,21 @@ on:
     
 jobs:
   deploy-sandbox:
-    uses: 
+    uses: ms-us-rcg-app-innovation/aks-operational-excellence/.github/workflows/aks-deploy-template.yml@main
+    with:
+      working_directory: terraform/aks
+      environment: Sandbox
+      tv_var_file: 'environment-vars/sandbox.tfvars'
+    secrets: inherit
+  
+  deploy-development:
+    uses:  ms-us-rcg-app-innovation/aks-operational-excellence/.github/workflows/aks-deploy-template.yml@main
+    needs: deploy-sandbox
+    with:
+      working_directory: terraform/aks
+      environment: Development
+      tv_var_file: 'environment-vars/development.tfvars'
+    secrets: inherit
+
+
+          
