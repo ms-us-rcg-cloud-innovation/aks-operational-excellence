@@ -12,4 +12,6 @@ variable "location" {
 
 variable "kubernetes_version" {
   type = string
+  description = "Version of the kubernetes cluster to deploy"
 }
+

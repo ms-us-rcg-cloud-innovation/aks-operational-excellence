@@ -4,13 +4,14 @@ resource "azurerm_kubernetes_cluster" "default" {
   location            = var.location
   resource_group_name = azurerm_resource_group.default.name
   dns_prefix          = var.name
+  kubernetes_version  = var.kubernetes_version
+
 
   default_node_pool {
     name           = "default"
     node_count     = 1
     vm_size        = "standard_d2as_v5"
     vnet_subnet_id = azurerm_virtual_network.default.subnet.*.id[0]
-
   }
 
   identity {
