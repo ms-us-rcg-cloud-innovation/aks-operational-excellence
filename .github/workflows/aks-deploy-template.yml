@@ -1,8 +1,5 @@
 # This is a basic workflow to help you get started with Actions
 name: Deploy AKS Infrastructure
-defaults:
-  run:
-    working-directory: terraform/aks/
     
 # Controls when the workflow will run
 on:
@@ -18,7 +15,15 @@ on:
         type: string
         required: true
         description: Terraform vars file for specific environment
-    
+    secrets:
+      ARM_CLIENT_ID: 
+        required: true
+      ARM_CLIENT_SECRET:
+        required: true
+      ARM_SUBSCRIPTION_ID:
+        required: true
+      ARM_TENANT_ID:
+        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
