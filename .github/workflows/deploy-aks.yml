@@ -12,7 +12,7 @@ jobs:
     uses: ms-us-rcg-app-innovation/aks-operational-excellence/.github/workflows/aks-deploy-template.yml@main
     with:
       environment: Sandbox
-      tv_var_file: 'environment-vars/sandbox.tfvars'
+      tf_var_file: 'environment-vars/sandbox.tfvars'
     secrets: inherit
   
   deploy-development:
@@ -20,7 +20,7 @@ jobs:
     needs: deploy-sandbox
     with:      
       environment: Development
-      tv_var_file: 'environment-vars/development.tfvars'
+      tf_var_file: 'environment-vars/development.tfvars'
     secrets: inherit
 
 
