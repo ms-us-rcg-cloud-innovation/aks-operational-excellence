@@ -9,6 +9,7 @@ on:
     
 jobs:
   deploy-sandbox:
+    name: Sandbox
     uses: ms-us-rcg-app-innovation/aks-operational-excellence/.github/workflows/aks-deploy-template.yml@main
     with:
       environment: Sandbox
@@ -16,6 +17,7 @@ jobs:
     secrets: inherit
   
   deploy-development:
+    name: Development
     uses:  ms-us-rcg-app-innovation/aks-operational-excellence/.github/workflows/aks-deploy-template.yml@main
     needs: deploy-sandbox
     with:      
