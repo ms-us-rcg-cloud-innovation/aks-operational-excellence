@@ -3,7 +3,7 @@ name: AKS Environment deployment
 defaults:
   run:
     working-directory: terraform/aks  
-
+    
 on:
   workflow_dispatch:
     
