@@ -55,6 +55,10 @@ jobs:
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      TFSTATE_STORAGE_ACCOUNT_NAME: ${{ secrets.TFSTATE_STORAGE_ACCOUNT_NAME }}
+      TFSTATE_STORAGE_CONTAINER_NAME: ${{ secrets.TFSTATE_STORAGE_CONTAINER_NAME }}
+      TFSTATE_KEY: ${{ secrets.TFSTATE_KEY }}
+      TFSTATE_RESOURCE_GROUP_NAME: ${{ secrets.TFSTATE_RESOURCE_GROUP_NAME }}
 
     
     #--service-principal --username "${ARM_CLIENT_ID}" --password "${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
@@ -70,7 +74,7 @@ jobs:
    
       - name: Terraform Init
         id: init 
-        run: terraform init -backend-config=storage_account_name=${{ secrets.TFSTATE_STORAGE_ACCOUNT_NAME }} -backend-config=container_name=${{secrets.TFSTATE_STORAGE_CONTAINER_NAME}} -backend-config=key=${{secrets.TFSTATE_KEY}} -backend-config=resource_group_name=${{secrets.TFSTATE_RESOURCE_GROUP_NAME}}
+        run: terraform init -backend-config=storage_account_name=${TFSTATE_STORAGE_ACCOUNT_NAME} -backend-config=container_name=${TFSTATE_STORAGE_CONTAINER_NAME} -backend-config=key=${TFSTATE_KEY} -backend-config=resource_group_name=${TFSTATE_RESOURCE_GROUP_NAME}
 
       - name: Terraform Validate
         id: validate
@@ -93,6 +97,11 @@ jobs:
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      TFSTATE_STORAGE_ACCOUNT_NAME: ${{ secrets.TFSTATE_STORAGE_ACCOUNT_NAME }}
+      TFSTATE_STORAGE_CONTAINER_NAME: ${{ secrets.TFSTATE_STORAGE_CONTAINER_NAME }}
+      TFSTATE_KEY: ${{ secrets.TFSTATE_KEY }}
+      TFSTATE_RESOURCE_GROUP_NAME: ${{ secrets.TFSTATE_RESOURCE_GROUP_NAME }}
+
 
     needs: [ prepare-terraform ]
     steps:
@@ -101,7 +110,7 @@ jobs:
           
       - name: Terraform Init
         id: init 
-        run: terraform init -backend-config=storage_account_name=${{ secrets.TFSTATE_STORAGE_ACCOUNT_NAME }} -backend-config=container_name=${{secrets.TFSTATE_STORAGE_CONTAINER_NAME}} -backend-config=key=${{secrets.TFSTATE_KEY}} -backend-config=resource_group_name=${{secrets.TFSTATE_RESOURCE_GROUP_NAME}}
+        run: terraform init -backend-config=storage_account_name=${TFSTATE_STORAGE_ACCOUNT_NAME} -backend-config=container_name=${TFSTATE_STORAGE_CONTAINER_NAME} -backend-config=key=${TFSTATE_KEY} -backend-config=resource_group_name=${TFSTATE_RESOURCE_GROUP_NAME}
 
       - name: Terraform Apply
         id: apply
