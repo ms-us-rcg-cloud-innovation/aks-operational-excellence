@@ -12,6 +12,9 @@ resource "azurerm_kubernetes_cluster" "default" {
     node_count     = var.default_pool_size
     vm_size        = "standard_d2as_v5"
     vnet_subnet_id = azurerm_virtual_network.default.subnet.*.id[0]
+    upgrade_settings {
+      max_surge = var.node_surge
+    }
   }
 
   identity {

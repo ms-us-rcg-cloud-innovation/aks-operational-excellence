@@ -3,3 +3,5 @@ name               = "k8s"
 location           = "eastus"
 kubernetes_version = "1.24.6"
 default_pool_size  = 1
+node_surge         = "1"
+
